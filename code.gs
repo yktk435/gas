@@ -1,31 +1,3 @@
-function myFunction() {
-    // spreadSheetオブジェクトを取得
-    let spreadSheetById = SpreadsheetApp.openById("10CarvKMjvq_Upq_3FTJULfExF4GMlS8wBFks44yNdVg")
-
-    // スプレッドシートの名前を表示する
-    Logger.log(spreadSheetById.getName())
-    // sheetオブジェクトの取得
-    let sheetByName = spreadSheetById.getSheetByName("doda整理")
-    Logger.log(sheetByName.getName())
-    let ragetByCellName = sheetByName.getRange("B3")
-    let str = ragetByCellName.getValue()
-
-    Logger.log(str)
-
-}
-
-function getMyData() {
-    var ss_id = '10CarvKMjvq_Upq_3FTJULfExF4GMlS8wBFks44yNdVg';
-    var sh_name = 'doda整理';
-    var sh = SpreadsheetApp.openById(ss_id).getSheetByName(sh_name);
-    sh.getRange("A4").setValue('=QUERY(doda!1:1338,"SELECT * WHERE B contains \'' + '未経験' + '\'",1\)');
-    const lastRow = sh.getLastRow();
-    for (var i = 2; i <= lastRow; i++) {
-        var title = sh.getRange(i, 2).getValue();
-        var myval = sh.getRange(i, 4).getValue();
-        console.log(title + ' ' + myval);
-    }
-}
 function sortData() {
 
     var ss_id = '10CarvKMjvq_Upq_3FTJULfExF4GMlS8wBFks44yNdVg';
